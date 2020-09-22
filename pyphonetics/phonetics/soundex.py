@@ -27,7 +27,9 @@ class Soundex(PhoneticAlgorithm):
 
         word = unidecode(word).upper()
         word = re.sub(r'[^A-Z]', r'', word)
-
+        
+        if len(word) == 0:
+            return ''
         first_letter = word[0]
         tail = ''.join(self.translations[char] for char in word
                        if self.translations[char] != 'D')
