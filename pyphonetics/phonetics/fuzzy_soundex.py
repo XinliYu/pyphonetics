@@ -100,6 +100,8 @@ class FuzzySoundex(PhoneticAlgorithm):
         code = squeeze(code)
 
         # Dealing with initials
+        if len(code) == 0:
+            return ''
         code = first_letter if code[0] in self.set4 \
             else first_letter + code[1:]
 
